@@ -1,0 +1,103 @@
+.container {
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.slider-inner {
+  height: 100%;
+  overflow-y: scroll;
+  margin: auto;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_review {
+  color: white;
+  flex-direction: row;
+  display: flex;
+  padding: 30px 35px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  box-shadow: 0px 10px 40px #00000056;
+}
+
+.card_review .user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.card_review .review_content {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  background-color: white;
+  width: calc(100% - 160px);
+  margin-right: 30px;
+  padding: 30px 35px;
+  border-radius: 20px;
+}
+
+.review_content .review_part {
+  margin-bottom: auto;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  gap: 10px;
+  color: black;
+  font-size: smaller;
+  text-align: justify;
+}
+
+.user_info .profile_pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.score {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  align-items: center;
+  font-size: larger;
+}
+
+#score {
+  display: block;
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  max-width: 200px;
+
+  font-family: "TT Firs Neue", monospace;
+
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.score-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.score-radio-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.score-radio-group input[type="radio"] {
+  margin-right: 5px;
+}

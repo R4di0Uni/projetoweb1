@@ -1,0 +1,1680 @@
+@font-face {
+  font-family: "TT Firs Neue";
+  src: url("./Fonts/TT Firs Neue Trial Bold.ttf") format("truetype");
+}
+body {
+  font-family: "TT Firs Neue", sans-serif;
+  margin-top: 50px;
+}
+.App {
+  text-align: baseline;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*Banner*/
+
+.banner {
+  width: 100vw; /* Set the width to 100% to make sure the image fills its container */
+  height: 90vh; /* Set the height to your desired fixed height */
+  object-fit: cover; /* Scale the image while maintaining its aspect ratio and cropping any overflow */
+
+}
+
+.banner-title {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+}
+
+.banner-btn {
+  background-color: #1d4ed8;
+  color: white;
+
+  border-radius: 20px;
+}
+
+.banner-home {
+  position: relative;
+}
+
+.banner-case {
+  position: absolute;
+  padding: 5px;
+
+  background-image: linear-gradient(to top, #1f2937 0%, transparent 100%);
+  width: 100%;
+  bottom: 0;
+}
+
+/*GamesByGenreId*/
+
+.game-list-container {
+  margin-top: 30px;
+}
+
+.games-list-title {
+  color: white;
+  font-weight: bold; /* Changed from 'font: bold' */
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px; /* Increased gap for better spacing */
+}
+
+.games-list-container {
+  background-color: #282c34; /* Darker background for better contrast */
+  padding: 20px; /* Increased padding for better spacing */
+  border: 1px solid #444; /* Darker border for better contrast */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger box shadow */
+  color: white;
+  text-align: center; /* Center text for better readability */
+  transition: transform 0.3s; /* Add transition for hover effect */
+}
+
+.games-list-container:hover {
+  transform: scale(1.05); /* Slight scale up on hover for better interactivity */
+}
+
+.games-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px; /* Increased border radius */
+  margin-bottom: 15px; /* Added margin bottom */
+}
+
+.review-tag {
+  background-color: #ffd700; /* Changed to gold for better visibility */
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 8px;
+  font-weight: bold; /* Make the review tag text bold */
+}
+
+
+
+/*TrendingGames*/
+
+.trending-games {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Creates 4 columns with equal width */
+  color: white;
+  margin-top: 5px;
+  gap: 3px;
+}
+
+.trending-games-title {
+  margin-left: 20px;
+}
+
+.trending-games-image {
+  height: 264px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.trending-games-container {
+  margin-top: 30px;
+}
+
+.trending-games-port {
+  background-color: #76a8f75e;
+}
+
+.trending-games-port:hover {
+  cursor: pointer;
+  scale: 1.1;
+  transition: ease-in-out;
+  animation-duration: 300;
+}
+
+.review-tag {
+  padding: 0.25rem; /* p-1: Padding de 0.25rem */
+  border-radius: 0.125rem; /* rounded-sm: Bordas levemente arredondadas */
+  margin-left: 0.5rem; /* ml-2: Margem Ã  esquerda de 0.5rem */
+  font-size: 0.625rem; /* text-[10px]: Tamanho de fonte de 0.625rem */
+  background-color: #d1fae5; /* bg-green-100: Cor de fundo verde-100 */
+  color: #047857; /* text-green-700: Cor do texto verde-700 */
+  font-weight: 500;
+}
+
+.trending-games-name {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.trending-games-title {
+  color: white;
+  font: bold;
+  font-size: 30px;
+}
+
+/*Comunidades*/
+
+.community {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/*Games*/
+#GamesBody {
+  background-color: #120052;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.game_main_details {
+  margin-right: 10%;
+}
+
+.game_main_details,
+.game_main_reference,
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.game-cover {
+  height: 500px;
+  width: 450px;
+  image-rendering: -webkit-optimize-contrast; /* Safari e Chrome */
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: crisp-edges; /* Padrão */
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.game_name {
+  text-align: center;
+}
+
+.linha-horizontal {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+.vid-game,
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.video1-game,
+.card_review {
+  margin: 10px;
+}
+
+.Game_Page {
+  color: white;
+}
+.Reviews-title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.Videos-title {
+  margin-top: 30px;
+  text-align: center;
+}
+.game_main_details {
+  display: flex;
+
+  margin-left: 12%;
+  margin-top: 50px;
+}
+
+.game_main_reference {
+  margin-right: 20px;
+  flex-direction: column;
+  display: flex;
+  row-gap: 15%;
+}
+.game_img {
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+.upper_game {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+.upper_game > * {
+  margin-right: 10px; /* Add margin between items */
+}
+
+.rating {
+  font-size: x-large;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  border: 1px solid white;
+  height: 100;
+  padding: 30px 35px;
+  border-radius: 20px;
+  color: white;
+}
+.linha-horizontal {
+  align-self: center;
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  margin-top: 5%;
+  margin-left: 12%;
+}
+
+.vid-game {
+  display: flex;
+  margin-top: 5%;
+}
+
+.vid-game > .video1-game {
+  margin-left: 10%;
+}
+
+.vid-game > .video2-game {
+  margin-left: 30%;
+}
+
+.button-more-reviews {
+  margin-top: 40px;
+  margin-left: 425px;
+  align-self: center;
+  background-color: #652ec7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-more-reviews :hover {
+  background-color: #aa3bfc;
+}
+.button-more-videos {
+  margin-top: 40px;
+  margin-left: 560px;
+  align-self: center;
+  background-color: #652ec7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-more-videos :hover {
+  background-color: #aa3bfc;
+}
+
+.GameRev-profile {
+  border-radius: 100px;
+}
+.Game_Page .container {
+  margin-bottom: 20px;
+  margin-right: 150px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+.Game-review {
+  margin-left: 2%;
+  margin-top: 5%;
+  display: flex;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+/*Login*/
+
+#LoginBody {
+  margin: 0;
+}
+#LoginBody * {
+  box-sizing: border-box;
+}
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("images/salvatore-andrea-santacroce-hRQgTeNPf6o-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login > h1 {
+  font-size: 3vw;
+  margin-top: 30px;
+  color: white;
+}
+
+.left-login-image {
+  width: 35vw;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #652ec7;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-login > h1 {
+  color: white;
+  font-weight: 800;
+  margin: 0;
+}
+
+.textfield-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield-login > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield-login > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+
+.textfield-login > input::placeholder {
+  color: white;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: azure;
+  background: darkslateblue;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px darkslateblue;
+}
+
+.btn-login:hover {
+  color: #aa3bfc;
+}
+.reference_login {
+  margin-top: 20px;
+  text-align: center;
+  color: azure;
+}
+.reference_login p {
+  margin: 0;
+}
+
+.reference_login a {
+  color: azure;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+/*Profile*/
+
+.main-profile {
+  display: flex;
+  height: 100vh;
+  
+}
+
+.left-profile {
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
+  margin: 20px;
+  background-color: #652ec7;
+  margin-top: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-text h2 {
+  margin-bottom: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  background-color: #ddd;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.profile-details {
+  padding-top: 20px;
+}
+
+.right-profile {
+  width: 50%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.right-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px; /* Adicionando um espaço de 5 pixels entre as tags */
+}
+
+.profile-textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  resize: none;
+}
+
+/*SignUp*/
+
+#Registerbody {
+  margin: 0;
+}
+#Registerbody * {
+  box-sizing: border-box;
+}
+.main_register {
+  background-image: url("images/salvatore-andrea-santacroce-hRQgTeNPf6o-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left_register {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card_register {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #652ec7;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+.card_register > h1 {
+  color: white;
+
+  font-weight: 800;
+  margin: 0;
+}
+.textfield_register_username {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield_register_username > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield_register_username > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+.textfield_register_username > input::placeholder {
+  color: white;
+}
+.textfield_email {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield_email > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield_email > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+.textfield_email > input::placeholder {
+  color: white;
+}
+.textfield_displayname {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield_displayname > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield_displayname > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+.textfield_displayname > input::placeholder {
+  color: white;
+}
+
+.textfield_register_password {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield_register_password > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield_register_password > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+.textfield_register_password > input::placeholder {
+  color: white;
+}
+
+.textfield_confirm_password {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield_confirm_password > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield_confirm_password > label {
+  color: azure;
+  margin-bottom: 10px;
+}
+.textfield_confirm_password > input::placeholder {
+  color: white;
+}
+.btn_register {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 10px 0px; /* Adjusted margin */
+  border: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: azure;
+  background: darkslateblue;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px darkslateblue;
+}
+.btn_register:hover {
+  color: #aa3bfc;
+}
+.reference_signin {
+  margin-top: 20px;
+  text-align: center;
+  color: azure;
+}
+.reference_signin p {
+  margin: 0;
+}
+
+.reference_signin a {
+  color: azure;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.right_register {
+  margin-right: 50px;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.right_register > h1 {
+  font-size: 3vw;
+  color: white;
+}
+
+/*Communities*/
+
+.Communities {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  user-select: none;
+  cursor: default;
+}
+
+.PageTitle {
+  text-align: center;
+  color: white;
+}
+
+.communities-listing {
+  display: flex;
+}
+
+.card-container {
+  display: flex; /* Add flex display */
+  flex-direction: column; /* Set flex direction to column */
+  justify-content: space-between;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.communities-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.community-icon {
+  margin-right: 10px;
+}
+.community-icon img {
+  background-color: #652ec7;
+}
+
+.community-name h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.community-misc h5 {
+  margin: 0;
+  font-size: 1rem;
+  color: #777;
+}
+
+.community-body {
+  padding-bottom: 20px;
+  margin-top: 60px;
+  height: 120px;
+  border: 1px solid #ddd;
+  background-color: #282c34;
+  border-radius: 5px;
+  color: white;
+}
+
+.community-description {
+  font-size: 1rem;
+  color: #333;
+}
+
+.community-tags {
+  margin-bottom: 10px;
+}
+
+.join_community {
+  background-color: #652ec7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 25px;
+  width: 100%;
+  user-select: none;
+}
+
+.join_community:hover {
+  background-color: #0056b3;
+}
+.join_community:not(:hover) {
+  cursor: auto; /* Override cursor style for non-hover state */
+}
+
+/*Community*/
+
+.container2 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.community-header2 {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.community-image2 {
+  border-radius: 50%;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.community-name2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.add-post-button2 {
+  float: right;
+}
+.add-post-button2 {
+  background-color: #652ec7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-post-button2:hover {
+  background-color: #aa3bfc;
+}
+.post2 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  position: relative;
+  clear: both;
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.post-content2 {
+  position: relative;
+  text-align: center;
+}
+
+.post-image2 {
+  width: 700px;
+  height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.post-description2 {
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  color: white;
+}
+
+.right-aligned {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  box-sizing: border-box;
+}
+
+/*Post*/
+.post-container {
+  max-width: 800px; /* Defina a largura máxima desejada */
+  margin: 20px auto 0; /* Centralize horizontalmente */
+}
+
+/*Tags*/
+
+#Tagbody {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#Tagbody * {
+  box-sizing: border-box;
+}
+.tag {
+  user-select: none;
+}
+
+.choose_tags {
+  width: 100%;
+  height: 100vh;
+  background: #201b2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_tags {
+  position: relative;
+  width: 60%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #a75db4;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+
+.card_tags > h1 {
+  color: white;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.tag_placement {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.tag {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn_done {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: darkslateblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn_done:hover {
+  background-color: #0056b3;
+}
+.tag.selected {
+  background-color: darkslateblue;
+  color: white;
+}
+/*CreatePost*/
+
+/* Container principal do componente */
+.createpost_mainDisplay {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #652ec7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.createpost_textEssentials {
+  margin-bottom: 20px;
+}
+
+.createpost_textEssentials h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.createpost_textEssentials label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.createpost_textEssentials input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.createpost_textEssentials input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo para a seção de conteúdo */
+.createpost_content {
+  margin-bottom: 20px;
+}
+
+.createpost_content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.createpost_content input[type="file"] {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.createpost_content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Adicional: Botão de envio (se necessário) */
+.createpost_button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: darkslateblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.createpost_button:hover {
+  background-color: #aa3bfc;
+}
+
+/*Create Community*/
+
+.createCommunity {
+  display: flex;
+
+  margin-top: 50px;
+  color: white;
+}
+.createcommunity_visuals {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+.create_community_title {
+  font-style: oblique;
+  margin-top: 30px;
+}
+.create_community_essentials {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  gap: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.imag_community {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+
+.create_community {
+  margin-top: 10px;
+}
+
+.createCommunity_textEssentials {
+  margin-top: 30px;
+}
+.card_create_community {
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #652ec7;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+.card_create_community > h2 {
+  color: white;
+  font-weight: 800;
+  margin: 10;
+}
+.community_name_essential {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.community_name_essential label {
+  font-size: larger;
+  font-style: initial;
+}
+.community_name_essential > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.community_description_essential {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.community_description_essential label {
+  font-size: larger;
+  font-style: initial;
+}
+.community_description_essential > textarea {
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #201b2c;
+  color: azure;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: content-box;
+  width: calc(100% - 30px);
+}
+.linha_horizontal_community {
+  align-self: flex-start;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.createCommunity_textEssentials textarea[type="text"] {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.createCommunity_textEssentials label,
+.createCommunity_textEssentials input {
+  margin-bottom: 10px;
+}
+.create_community_buttons {
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.create_community_buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.create_community_buttons button[type="submit"] {
+  background-color: #652ec7;
+  color: white;
+}
+
+.create_community_buttons button[type="reset"] {
+  background-color: #282c34;
+  color: white;
+}
+/*Create Events*/
+.createEvent_mainDisplay {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+.title_container {
+  background-color: rgb(54, 53, 58);
+  height: 350px;
+
+  background-position: center center;
+  background-size: cover;
+  margin-right: auto;
+}
+.title_container .heading {
+  font-family: "TT Firs Neue";
+  font-size: 150px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  /* padding-top: 20vh; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #652ec7;
+  transition: font-size 0.3s;
+  margin-left: 20px;
+}
+.all_it {
+  flex-direction: row;
+  display: flex;
+  margin-top: 30px;
+  gap: 10%;
+}
+.upper_elements {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-left: 100px;
+}
+
+.Event_Title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.Event_Title label {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.Event_Title input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: azure;
+  color: #333;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.linha_horizontal_event {
+  align-self: flex-start;
+  width: 80%;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 40px;
+  margin-left: 100px;
+}
+.Event_img label {
+  margin-bottom: 5px;
+}
+.Event_img {
+  margin-top: 20px;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+
+.Event_img img {
+  width: 550px;
+  height: 300px;
+  margin-top: 10px;
+}
+
+.createEvent_mainDetails {
+  margin-top: 20px;
+}
+
+.react-datetime-picker__wrapper {
+  flex-direction: row;
+  display: flex;
+}
+
+.actual_details {
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.location h2 {
+  margin-bottom: 10px;
+}
+
+.maps_location input {
+  margin-bottom: 10px;
+}
+
+.location_button {
+  margin-top: 10px;
+  background-color: #652ec7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.location_button :hover {
+  background-color: #aa3bfc;
+}
+.map_container {
+  width: 100%;
+  height: 400px;
+  transition: height 0.5s;
+}
+
+.map_container.expanded {
+  height: 100vh;
+}
+.date_time_title {
+  size: 40px;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.time {
+  flex-direction: column;
+  display: flex;
+}
+.card-event-details {
+  margin-top: 30px;
+  width: 40vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #652ec7;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+.time input[type="date"] {
+  background-color: #652ec7;
+  padding: 15px;
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #282c34;
+  align-items: flex-start;
+  justify-content: center;
+}
+.date_stat {
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+}
+.date_label {
+  align-self: baseline;
+  margin-bottom: 10px;
+}
+.time_stat {
+  flex-direction: column;
+
+  display: flex;
+  margin-top: 20px;
+}
+/* Style the calendar picker indicator */
+.time input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.time input[type="time"] {
+  background-color: #652ec7;
+  padding: 15px;
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #282c34;
+  align-items: flex-start;
+  justify-content: center;
+}
+.textEssentials {
+  align-items: left;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+.date_holder {
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+}
+.time_holder {
+  flex-direction: column;
+
+  display: flex;
+  margin-top: 20px;
+}
+.card_time {
+  margin-top: 20px;
+  width: 40vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #652ec7;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+
+.icon-date,
+.icon-time {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.icon-date {
+  background-image: url("./images/image.png"); /* Replace with your calendar icon */
+}
+
+.icon-time {
+  background-image: url(""); /* Replace with your time icon */
+}
+.textEssentials {
+  align-items: left;
+}
+
+/* Style the arrow button for the time input */
+.time input[type="time"]::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.create_event_body {
+  margin-left: 30px;
+}
+
+.any_description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  margin-left: 100px;
+}
+
+.any_description label {
+  font-size: 18px;
+  align-self: first baseline;
+}
+
+.any_description textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  width: 85%;
+
+  height: 300px; /* Fixed height */
+}
+
+.create_event_buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.create_event_buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create_event_buttons button[type="submit"] {
+  background-color: #652ec7;
+  color: white;
+}
+
+.create_event_buttons button[type="reset"] {
+  background-color: #282c34;
+  color: white;
+}
+
+@media only screen and (max-width: 950px) {
+  .card-login {
+    flex-direction: column;
+  }
+}
+
+/* Estilos para largura máxima de 600px */
+@media only screen and (max-width: 600px) {
+  .main-login {
+    flex-direction: column;
+  }
+  .left-login > h1 {
+    display: none;
+  }
+  .left-login,
+  .right-login {
+    width: 100%;
+    height: auto;
+  }
+  .left-login-image {
+    width: 50vw;
+  }
+  .card-login {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .card_register {
+    flex-direction: column;
+  }
+}
